@@ -4,10 +4,8 @@
     <list default="true" id="c09e77ad-8388-499a-aa09-0aad89d30cb4" name="Default" comment="">
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\bg_hr.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\blacktocat.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\camouflage.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\icon_download.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\sprite_download.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="wpm.pres.iws" />
     <ignored path=".idea/workspace.xml" />
