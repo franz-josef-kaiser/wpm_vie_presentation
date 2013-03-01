@@ -1,6 +1,6 @@
-## Presentation for WPMeetUp
+## Presentation for the 2nd WPMeetUp
 
-### "Professional Plugin Development"
+### [Go to the "Professional Plugin Development" slides](http://franz-josef-kaiser.github.com/wpm_vie_presentation/)
 
 Talk incl. links and code samples.
 
