@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c09e77ad-8388-499a-aa09-0aad89d30cb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/camouflage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sass_stdlib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_deck.js" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\bg_hr.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\blacktocat.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\camouflage.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\icon_download.png" afterPath="" />
       <change type="DELETED" beforePath="C:\xampp\htdocs\wpm.pres\images\sprite_download.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
@@ -34,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="569" column="54" selection-start="19915" selection-end="19915" vertical-scroll-proportion="0.5822785">
+            <state line="558" column="27" selection-start="19170" selection-end="19170" vertical-scroll-proportion="0.16455697">
               <folding>
                 <element signature="n#style#0;n#section#24;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#section#24;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -256,7 +252,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="569" column="54" selection-start="19915" selection-end="19915" vertical-scroll-proportion="0.5822785">
+        <state line="558" column="27" selection-start="19170" selection-end="19170" vertical-scroll-proportion="0.16455697">
           <folding>
             <element signature="n#style#0;n#section#24;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#section#24;n#body#0;n#html#0;n#!!top" expanded="true" />
