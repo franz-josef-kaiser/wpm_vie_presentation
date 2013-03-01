@@ -1,0 +1,62 @@
+# --------------------
+# OS generated files #
+# --------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+# --------------------
+# Windows #
+# --------------------
+Thumbs.db
+Desktop.ini
+# --------------------
+#
+# --------------------
+.idea/*
+.idea*
+.idea
+
+# --------------------
+# Unit test / coverage reports
+# --------------------
+.coverage
+.tox
+
+# --------------------
+# Logs and databases
+# --------------------
+*.log
+*.sql
+*.sqlite
+
+# Different packages like zip, etc.
+# It's better to unpack these files and commit the raw source because
+# git has its own built in compression methods.
+# --------------------
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+# --------------------
+# packing-only formats
+# --------------------
+*.iso
+*.tar
+# --------------------
+# package management formats
+# --------------------
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm

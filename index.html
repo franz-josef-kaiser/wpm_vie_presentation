@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"><![endif]-->
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Professional Plugin development. Presentation at WP MeetUp in Vienna by Franz Josef Kaiser.</title>
+
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="_deck.js/core/deck.core.css">
+
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="_deck.js/extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="_deck.js/extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="_deck.js/extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="_deck.js/extensions/status/deck.status.css">
+	<link rel="stylesheet" href="_deck.js/extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="_deck.js/extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="_deck.js/themes/style/swiss.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="_deck.js/themes/transition/horizontal-slide.css">
+
+	<!-- Required Modernizr file -->
+	<script src="_deck.js/modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+	<h2>2<sup>nd</sup> WP MeetUp in Vienna</h2>
+	<h4>28.02.2013 @Schraubenfabrik</h4>
+	<p>with <strong>Franz Josef Kaiser</strong></p>
+	<ul>
+		<li><a href="http://unserkaiser.com" title="Blog">Read unserkaiser.com</a></li>
+		<li><a href="https://twitter.com/unserkaiser" title="@unserkaiser on Twitter">Follow @unserkaiser</a></li>
+		<li><a href="https://plus.google.com/107110219316412982437/posts" title="Google+">Subscribe on Google+</a></li>
+		<li><a href="https://github.com/franz-josef-kaiser" title="Franz Josef Kaiser on GitHub">Download Plugins on GitHub</a></li>
+		<li><a href="https://github.com/wecodemore" title="wecodemore">Download (WCM) wecodemore plugins on GitHub</a></li>
+		<li><a href="http://wpkrauts.com" title="WP Krauts+">Read WP Krauts</a></li>
+		<li><a href="http://wordpress.stackexchange.com/users/385/kaiser" title="WordPress StackExchange">Ask on WordPress StackExchange</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>Professional Plugin Development</h1>
+</section>
+
+<section class="slide">
+	<h2>Drop-Ins, MU-Plugins, Plugins, Themes</h2>
+	<p>Use the <strong>right tool</strong> for the job.</p>
+	<ol>
+		<li><strong>Drop-Ins:</strong> Replaces core functionality</li>
+		<li><strong>MU-Plugins:</strong> Single file plugins, that load before plugins.
+		Don't need configuration. Load on all site of a Multisite install.</li>
+		<li><strong>Plugins:</strong> Add functionality.</li>
+		<li><strong>Themes:</strong> Visualizes your content. Add styles, MarkUp
+		and define what to show where. No added functionality.</li>
+	</ol>
+	<p>Don't stuff everything in your themes <code>functions.php</code> file.</p>
+</section>
+
+<section class="slide">
+	<h1>Drop-Ins</h1>
+</section>
+
+<section class="slide">
+	<h2>Available Drop-Ins</h2>
+	<table>
+		<thead><tr>
+			<th>File</th>
+			<th>Type of Plugin</th>
+			<th>Loaded</th>
+			<th>Context</th>
+		</tr></thead>
+		<tfoot><tr>
+			<th colspan="4">
+				Source
+				<a href="http://hakre.wordpress.com/2010/05/01/must-use-and-drop-ins-plugins/" title="Hakre">Hakre</a>
+			</th>
+		</tr></tfoot>
+		<tbody>
+		<tr>
+			<td><code>advanced-cache.php</code></td>
+			<td>Advanced caching plugin.</td>
+			<td>on <code>WP_CACHE</code> value</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>db.php</code></td>
+			<td>Custom database class</td>
+			<td>always</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>db-error.php</code></td>
+			<td>Custom database error message</td>
+			<td>on error</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>install.php</code></td>
+			<td>Custom install script</td>
+			<td>on install</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>maintenance.php</code></td>
+			<td>Custom maintenance message</td>
+			<td>on maintenance</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>object-cache.php</code></td>
+			<td>External object cache</td>
+			<td>always</td>
+			<td>Single</td>
+		</tr>
+		<tr>
+			<td><code>sunrise.php</code></td>
+			<td>Executed before Multisite is loaded</td>
+			<td>on <code>SUNRISE</code> value</td>
+			<td>Multi</td>
+		</tr>
+		<tr>
+			<td><code>blog-deleted.php</code></td>
+			<td>Custom blog deleted message</td>
+			<td>on deleted blog</td>
+			<td>Multi</td>
+		</tr>
+		<tr>
+			<td><code>blog-inactive.php</code></td>
+			<td>Custom blog inactive message</td>
+			<td>on inactive blog</td>
+			<td>Multi</td>
+		</tr>
+		<tr>
+			<td><code>blog-suspended.php</code></td>
+			<td>Custom blog suspended message</td>
+			<td>on archived or spammed blog</td>
+			<td>Multi</td>
+		</tr>
+		</tbody></table>
+</section>
+
+<section class="slide">
+	<h2>Example Drop-In: <code>db-error.php</code></h2>
+	<p>
+		Improve upon core. Make it better, faster, more reliable.
+		<br />
+		Plain PHP files that need <em>no</em> Plugin header comment block.
+		<br />
+		<em>Drop!</em> them in your <code>wp-content</code> folder, or whatever you named it.
+	</p>
+	<p>
+		Example <code>~/wp-content/db-error.php</code> file: Send a <code>503</code> header
+		to avoid loosing page rank.
+	</p>
+	<pre>
+$protocol = $_SERVER["SERVER_PROTOCOL"];
+if (
+	'HTTP/1.1' != $protocol
+	AND 'HTTP/1.0' != $protocol
+)
+	$protocol = 'HTTP/1.0';
+header( "{$protocol} 503 Service Unavailable", true, 503 );
+header( 'Content-Type: text/html; charset=utf-8' );
+header( 'Retry-After: 600' );
+	</pre>
+</section>
+
+<section class="slide">
+	<h1>MU Plugins</h1>
+</section>
+
+<section class="slide">
+	<h2>When to use a MU Plugin?</h2>
+	<p>
+		Ever found a small snippet that you wanted to throw in your <code>functions.php</code>?
+		<br>
+		<strong>Users</strong>, Use a MU Plugin for that!
+		<br>
+		If you ain't got a <code>mu-plugins</code> folder in your <code>wp-content</code> dir: simply add one. It's safe.
+	</p>
+</section>
+
+<section class="slide">
+	<h2>MU Plugin example</h2>
+	<p>
+		Disable the <code>capital_P_dangit</code> filter callback.
+	</p>
+	<pre>
+# No direct file access without WP core loaded.
+defined( 'ABSPATH' ) OR exit;
+/**
+ * Plugin Name: Disable »capitalPdangit«
+ * Description: My content is my content. Don't mess with it.
+ * Author:      Franz Josef Kaiser (wecodemore[at]gmail.com)
+ * Author URl:  http://unserkaiser.com
+ * License:     MIT
+ */
+add_action( 'muplugins_loaded', 'NO_capital_P_dangit', 5 );
+function NO_capital_P_dangit()
+{
+	foreach (
+		array( 'the_content', 'the_title', 'comment_text' )
+		as $filter
+	)
+		remove_filter( $filter, 'capital_P_dangit' );
+}
+	</pre>
+</section>
+
+<section class="slide">
+	<h1>Plugins</h1>
+</section>
+
+<section class="slide">
+	<h2>Considerations</h2>
+	<p><em>Or: What this talk is about.</em></p>
+	<ul>
+		<li>Preparation: Get a decent config setup.</li>
+		<li>Error reporting</li>
+		<li>Avoid being a target, the global namespace</li>
+		<li>Use the Plugins API: Actions &amp; Filters</li>
+		<li>Load code only when you need it.</li>
+		<li>Conditional logic.</li>
+		<li>Data and Database interaction.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>The "Paranoia" config setup</h2>
+	<p>
+		Errors are for development, not for production.
+		Don't leave it to your users to find out your mistakes.
+		<a href="https://gist.github.com/franz-josef-kaiser/4063197" title="Go to paranoia config gist">#</a>
+	</p>
+<pre>
+define( 'DS',                   DIRECTORY_SEPARATOR );
+# ==================================
+# PHP errors & log: Drop what you don't need.
+error_reporting( E_ALL | E_STRICT | E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
+@ini_set( 'display_errors',     1 );
+@ini_set( 'log_errors',         1 );
+
+# ==================================
+# DEBUG
+define( 'WP_DEBUG',             true );
+// file: ~/WP_CONTENT_DIR/debug.log
+define( 'WP_DEBUG_LOG',         true );
+define( 'WP_DEBUG_DISPLAY',     true );
+define( 'SAVEQUERIES',          true );
+# DEBUG: MU
+define( 'DIEONDBERROR',         true );
+define( 'ERRORLOGFILE', WP_CONTENT_DIR.DS.'logs'.DS.'mu_error.log' );
+# PHP Error log location
+@ini_set( 'error_log', WP_CONTENT_DIR.DS.'logs'.DS.'php_error.log' );
+</pre>
+</section>
+
+<section class="slide">
+	<h2>Error reporting</h2>
+	<p>
+		<strong>Users</strong>: Be nice, and &hearts; your developer.
+		Provide meaningful error reports - use the paranoia setup if something is not working.
+	</p>
+	<ul>
+		<li>Use <code>phpinfo();</code> in a mu-plugin to give the developer info about your server setup.</li>
+		<li>Get a GitHub account if the developer has a repository there.
+			File an <em>Issue</em> with all data that you can get.</li>
+		<li>Be patient. Support is a privilege, not a right.</li>
+		<li>
+			Don't downvote or write a bad review before giving your dev a chance.
+			Support your developer and give him a virtual hug.
+			Together you can make wonderful ideas become reality.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Reviews</h2>
+	<p>Voted: 1/5 *</p>
+	<p>Review:</p>
+<blockquote>Taxes bug!
+
+	このEasy Digital Downloads のプラグインは、プライス20,000.以上で
+	税金計算のバグが有ります。
+	実際にご確認ください。
+
+	プライス20,000.
+	税金5 %
+
+	制作者に連絡しても駄目でした。
+	なので、Rating　は、1.</blockquote>
+	<p>Source: <a href="http://pippinsplugins.com/how-to-leave-a-good-bad-review/" title="Pippin about downvotes">Pippin Williamson "Easy Digital Downloads" Plugin at the wp.org repo.</a></p>
+</section>
+
+<section class="slide">
+	<h2>Be unique!</h2>
+	<p>Throwing things into the global namespace is like driving on the wrong side of the street to see what happens.
+		Safe a day, avoid collisions.</p>
+	<ul>
+		<li>Don't use global constants: <s><code>define( 'VERSION', 1.0 );</code></s></li>
+		<li>Don't use global variables: <s><code>$facepalm = new FacePalm::init();</code></s></li>
+		<li>Prefix your functions & classes: <code>class wpm_vie_PLUGIN</code></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Plugins API basics</h2>
+	<p>
+		Avoid hacking core files. There's an API to do it. The difference between actions and filters.
+	</p>
+	<ul>
+		<li>Actions allow you to hook into core.</li>
+		<li>Actions allow you to modify parts of core.</li>
+	</ul>
+	<p>
+		Action: <code>do_action( 'name', $additional_arguments );</code>
+		<br>
+		Filter: <code>apply_filters( 'name', $minimum_argument, $additional_arguments );</code>
+	</p>
+</section>
+
+<section class="slide">
+	<h2>Time to hook in</h2>
+	<p>MU-Plugins, Plugins and Themes: each group has their own hook.</p>
+	<ul>
+		<li>MU-Plugins: <code>muplugins_loaded</code></li>
+		<li>Plugins: <code>plugins_loaded</code></li>
+		<li>Themes: <code>after_setup_theme</code></li>
+	</ul>
+	<p>
+		Hook in once, with a priority lower than <strong>10</strong>,
+		so others have a chance to modify them with the <em>default</em> priority of <strong>10</strong>.
+	</p>
+</section>
+
+<section class="slide">
+	<h2>A basic plugin</h2>
+	<p>
+		Example: The
+		<a href="https://github.com/wecodemore/current-admin-info" title="Download on GitHub">WCM Current Admin Info Plugin</a>.
+		Hooks in at <code>plugins_loaded</code> to load all files.
+	</p>
+	<pre>
+defined( 'ABSPATH' ) OR exit;
+/**
+ * Plugin Name:  Current admin screen info
+ * Author:       Franz Josef Kaiser (wecodemore[at]gmail.com)
+ */
+add_action( 'plugins_loaded', array( 'WCM_CSD', 'init' ), 5 );
+final class WCM_CSD
+{
+	private static $instance;
+
+	public static function init()
+	{
+		is_null( self::$instance )
+			AND self::$instance = new self;
+		return self::$instance;
+	}
+
+	public function __construct()
+	{
+		$files = glob(plugin_dir_path(__FILE__).'inc/*.php');
+		foreach ( $files as $file )
+			require_once $file;
+	}
+}
+	</pre>
+</section>
+
+<section class="slide">
+	<h2>One &hearts; for shared host users</h2>
+	<blockquote>
+		Fatal error: Allowed memory size of *** bytes exhausted…
+	</blockquote>
+	<p>
+		This is what your users get: <strong>The white screen of &dagger; death!</strong>
+		<br>
+		Happens mostly on the <code>~/wp-admin/dashboard.php</code> for shared hosts.
+		<br>
+		Tells us, that a lot of crappy plugins didn't care about where they load themselves.
+	</p>
+</section>
+
+<section class="slide">
+	<h1>&#9760;</h1>
+</section>
+
+<section class="slide">
+	<h2>Contextual and conditional loading</h2>
+	<ul>
+		<li><a href="http://codex.wordpress.org/Conditional_Tags" title="Conditional Tags">Conditional Tags</a>
+			for <strong>Themes</strong> and templates.</li>
+		<li>Check against the <code>get_current_screen()</code>
+			<a href="http://queryposts.com/function/get_current_screen/" title="QueryPosts.com">
+			#</a> object for admin pages.</li>
+		<li><s>Globals for admin pages.</s></li>
+		<li>
+			API return values for admin pages.
+			<ul>
+				<li><code>$plugin_page = add_menu_page()</code> returns the page hook.</li>
+				<li>...</li>
+			</ul>
+		</li>
+		<li>
+			Conditional Hooks like <code>do_action( "load-{$plugin_page}" );</code>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Example</h2>
+	<p>Requests need time, scripts and files use memory.</p>
+	<pre>
+add_action( 'admin_enqueue_scripts', 'wpm_vie_enqueue' );
+function wpm_vie_enqueue( $hook )
+{
+	in_array( $hook, array( 'post.php', 'post-new.php' ) )
+		AND wp_enqueue_script( 'vienna' );
+}
+	</pre>
+</section>
+
+<section class="slide">
+	<h1>Options</h1>
+</section>
+
+<section class="slide">
+	<h2>Options</h2>
+	<p>
+		Sometimes, "Give me an option!" is like&hellip;
+		<br>
+		<object type="application/x-shockwave-flash" width="400" height="300" data="http://www.flickr.com/apps/video/stewart.swf?v=109786" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"> <param name="flashvars" value="intl_lang=de-de&photo_secret=edcff17f03&photo_id=4236792597"></param> <param name="movie" value="http://www.flickr.com/apps/video/stewart.swf?v=109786"></param> <param name="bgcolor" value="#000000"></param> <param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/video/stewart.swf?v=109786" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=de-de&photo_secret=edcff17f03&photo_id=4236792597" height="300" width="400"></embed></object>
+	</p>
+</section>
+
+<section class="slide" style="background: url('assets/camouflage.png');">
+	<h1 style="border: none; color: #4b5b41;">Plugins should blend in</h1>
+</section>
+
+<section class="slide">
+	<h2>Digital Footprint</h2>
+	<ul>
+		<li>If you don't need ~100 option fields, add your options to the default settings screens.
+		Register your settings to the default Admin UI settings screens.</li>
+		<li>Options need defaults. But don't pollute your users database. Care about cleaning up,
+		when you're not needed anymore: On activation, deactivation and uninstall.</li>
+		<li><a href="https://gist.github.com/franz-josef-kaiser/5057727" title="Example Plugin as GitHub Gist">
+			An example plugin that perfectly blends into the Admin UI Media Settings screen.
+		</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Less is more!</h2>
+	<p>
+		Don't feel bad if you offer <em>no</em> options at all.
+		<br />
+		Advantages of no options: Less chances to&hellip;
+	</p>
+	<ul>
+		<li>&hellip;get misunderstood</li>
+		<li>&hellip;have unsatisfied users</li>
+		<li>&hellip;maintenance</li>
+	</ul>
+	<p>Do one job, but do it right.</p>
+</section>
+
+<section class="slide">
+	<h1>Data and the Database&hellip;</h1>
+</section>
+
+<section class="slide">
+	<h1>&hellip;and translations</h1>
+</section>
+
+<section class="slide">
+	<h1>&hellip;is something for another talk.</h1>
+</section>
+
+<section class="slide">
+	<h2>Follow the right people</h2>
+	<p>
+		A short (an incomplete) list of developers doing it right.&hellip; in <em>alphabetical</em> order.
+	</p>
+	<ul>
+		<li><a href="http://www.rarst.net/" title="Rarst">Andrey "Rarst" Savchenko</a></li>
+		<li><a href="http://digitalquery.com/" title="digitalquery">Anu</a></li>
+		<li><a href="http://bueltge.de/" title="bueltge">Frank Bültge</a></li>
+		<li><a href="http://hakre.wordpress.com/" title="hakre">Hakre</a></li>
+		<li><a href="http://kovshenin.com/" title="Kovshenin">Konstantin Kovshenin</a></li>
+		<li><a href="http://mikeschinkel.com/" title="Mike Schinkel">Mike Schinkel</a></li>
+		<li><a href="http://wpsecure.net/" title="ebiene">Robert "Wycks" Ellison</a></li>
+		<li><a href="http://scribu.net/" title="ebiene">Sergej Müller</a></li>
+		<li><a href="http://scribu.net/" title="scribu">Silviu-Cristian "scribu" Burcă</a></li>
+		<li><a href="http://www.stephenharris.info/" title="Stephen Harris">Stephen Harris</a></li>
+		<li><a href="http://toscho.de/" title="toscho">Thomas Scholz</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Thank you! &hellip; Questions?</h2>
+	<p>
+		<strong>Franz Josef Kaiser</strong>
+	</p>
+	<ul>
+		<li><a href="http://unserkaiser.com" title="Blog">Read unserkaiser.com</a></li>
+		<li><a href="https://twitter.com/unserkaiser" title="@unserkaiser on Twitter">Follow @unserkaiser</a></li>
+		<li><a href="https://plus.google.com/107110219316412982437/posts" title="Google+">Subscribe on Google+</a></li>
+		<li><a href="https://github.com/franz-josef-kaiser" title="Franz Josef Kaiser on GitHub">Download Plugins on GitHub</a></li>
+		<li><a href="https://github.com/wecodemore" title="wecodemore">Download (WCM) wecodemore plugins on GitHub</a></li>
+		<li><a href="http://wpkrauts.com" title="WP Krauts+">Read WP Krauts</a></li>
+		<li><a href="http://wordpress.stackexchange.com/users/385/kaiser" title="WordPress StackExchange">Ask on WordPress StackExchange</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Download the presentation &hellip; soon</h2>
+	<h3>https://github.com/franz-josef-kaiser/wpm_vie_presentation</h3>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="_deck.js/jquery-1.7.2.min.js"></script>
+<script src="_deck.js/core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="_deck.js/core/deck.core.js"></script>
+<script src="_deck.js/extensions/hash/deck.hash.js"></script>
+<script src="_deck.js/extensions/menu/deck.menu.js"></script>
+<script src="_deck.js/extensions/goto/deck.goto.js"></script>
+<script src="_deck.js/extensions/status/deck.status.js"></script>
+<script src="_deck.js/extensions/navigation/deck.navigation.js"></script>
+<script src="_deck.js/extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$( function() {
+		$.deck('.slide');
+	} );
+</script>
+</body>
+</html>
